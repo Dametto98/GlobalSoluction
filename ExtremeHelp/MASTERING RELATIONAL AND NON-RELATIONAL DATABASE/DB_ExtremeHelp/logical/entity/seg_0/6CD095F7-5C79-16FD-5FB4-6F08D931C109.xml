@@ -1,0 +1,126 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="6CD095F7-5C79-16FD-5FB4-6F08D931C109" name="T_EH_ALERTA">
+<createdBy>User</createdBy>
+<createdTime>2025-05-29 00:12:50 UTC</createdTime>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<engineerTo>
+<item key="031722E0-BD47-0AB3-5632-73438B0A9841" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="CD_ALERTA" id="C8F82872-0CCE-46C1-C38E-AD1174DD0A5E">
+<createdBy>User</createdBy>
+<createdTime>2025-05-29 00:13:09 UTC</createdTime>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<engineerTo>
+<item key="031722E0-BD47-0AB3-5632-73438B0A9841" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<ownDataTypeParameters>,8,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="DS_TITULO" id="0292F375-5B99-AB18-D9FC-62BDD32884B3">
+<createdBy>User</createdBy>
+<createdTime>2025-05-29 00:13:09 UTC</createdTime>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<engineerTo>
+<item key="031722E0-BD47-0AB3-5632-73438B0A9841" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>150</dataTypeSize>
+<ownDataTypeParameters>150,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="DS_MENSAGEM" id="B72B16EC-FB5F-3554-9891-265CFF90A8CA">
+<createdBy>User</createdBy>
+<createdTime>2025-05-29 00:14:39 UTC</createdTime>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<engineerTo>
+<item key="031722E0-BD47-0AB3-5632-73438B0A9841" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>2000</dataTypeSize>
+<ownDataTypeParameters>2000,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="DT_PUBLICACAO" id="05D994F9-3B3A-40D1-D07E-750C21E9F046">
+<createdBy>User</createdBy>
+<createdTime>2025-05-29 00:15:12 UTC</createdTime>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<engineerTo>
+<item key="031722E0-BD47-0AB3-5632-73438B0A9841" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="DS_SERIEDADE" id="DEF5748D-874E-D36B-C986-C852CDEFE696">
+<createdBy>User</createdBy>
+<createdTime>2025-05-29 00:15:50 UTC</createdTime>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<engineerTo>
+<item key="031722E0-BD47-0AB3-5632-73438B0A9841" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="DS_FONTE" id="99489BD7-6CE1-47F0-AA32-E041DABA3CD6">
+<createdBy>User</createdBy>
+<createdTime>2025-05-29 00:18:23 UTC</createdTime>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<engineerTo>
+<item key="031722E0-BD47-0AB3-5632-73438B0A9841" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="DS_ATIVO" id="9CD08C1A-5ED0-77B0-8467-795D5710EB8B">
+<createdBy>User</createdBy>
+<createdTime>2025-05-29 00:18:42 UTC</createdTime>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<engineerTo>
+<item key="031722E0-BD47-0AB3-5632-73438B0A9841" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>1</dataTypePrecision>
+<ownDataTypeParameters>,1,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="2A5EFD36-718D-A408-8170-2245FD9DCEFF" name="PK_ALERTA">
+<createdBy>User</createdBy>
+<createdTime>2025-05-29 00:13:26 UTC</createdTime>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="031722E0-BD47-0AB3-5632-73438B0A9841" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<newElementsIDs>C8F82872-0CCE-46C1-C38E-AD1174DD0A5E</newElementsIDs>
+<usedAttributes>
+<attributeRef>C8F82872-0CCE-46C1-C38E-AD1174DD0A5E</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

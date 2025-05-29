@@ -1,0 +1,84 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="33BE1CB8-932B-AFE4-ADF9-10EF88B6BFF5" name="T_EH_DICA_PREPARACAO">
+<createdBy>User</createdBy>
+<createdTime>2025-05-29 00:49:01 UTC</createdTime>
+<generatorID>73C57ECA-B7B8-07DB-EAD4-911DD2694D84</generatorID>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="CD_DICA" id="0A223EE4-015D-BF12-1108-C9731D25A767">
+<createdBy>User</createdBy>
+<createdTime>2025-05-29 00:49:01 UTC</createdTime>
+<generatorID>D6ED94BE-FBB0-38D0-F21E-D840DF73E92C</generatorID>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<ownDataTypeParameters>,8,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DS_TITULO" id="B20374C5-3428-53A1-F967-54395BEC6CAF">
+<createdBy>User</createdBy>
+<createdTime>2025-05-29 00:49:01 UTC</createdTime>
+<generatorID>BECF38A0-0CD8-6DFE-B153-C44B859C4D9E</generatorID>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>150</dataTypeSize>
+<ownDataTypeParameters>150,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DS_CONTEUDO" id="B6D7F74D-658D-D906-153B-0522A5E0B6FA">
+<createdBy>User</createdBy>
+<createdTime>2025-05-29 00:49:01 UTC</createdTime>
+<generatorID>64CBF5D5-1FED-B018-E619-FDDA12224789</generatorID>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT028</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DS_CATEGORIA" id="A44FA966-1AD0-591F-529B-34726DBA98ED">
+<createdBy>User</createdBy>
+<createdTime>2025-05-29 00:49:01 UTC</createdTime>
+<generatorID>85BF6934-9E5A-7981-C224-305BA3DBECC2</generatorID>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DT_ULTIMA_ATUALIZACAO" id="A5EF8C1C-17DC-AC06-EEAA-69954B6770F6">
+<createdBy>User</createdBy>
+<createdTime>2025-05-29 00:49:01 UTC</createdTime>
+<generatorID>600F6E2B-6C79-CD8B-61EC-4B1B29CDE0EE</generatorID>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="230E2215-5950-87A4-98BC-E614D2C458F8" name="T_EH_DICA_PREPARACAO_PK">
+<createdBy>User</createdBy>
+<createdTime>2025-05-29 00:49:01 UTC</createdTime>
+<generatorID>39D43C66-D5CB-C423-A6A8-64B4AAD1B32A</generatorID>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0A223EE4-015D-BF12-1108-C9731D25A767"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,117 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="F10C39B0-FD86-C939-A85D-C6F0C48ED410" name="T_EH_ATENDIMENTO_VOLUNTARIO">
+<createdBy>User</createdBy>
+<createdTime>2025-05-29 00:06:55 UTC</createdTime>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<engineerTo>
+<item key="031722E0-BD47-0AB3-5632-73438B0A9841" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="CD_ATENDIMENTO" id="4D0E8A88-498B-39AB-7DCF-41F9C12E10BD">
+<createdBy>User</createdBy>
+<createdTime>2025-05-29 00:07:32 UTC</createdTime>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<engineerTo>
+<item key="031722E0-BD47-0AB3-5632-73438B0A9841" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<ownDataTypeParameters>,8,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="CD_PEDIDO" id="1DA33916-B1CE-71EE-DE26-A2D4161D8F43">
+<createdBy>User</createdBy>
+<createdTime>2025-05-29 00:39:18 UTC</createdTime>
+<generatorID>CBBB1A38-5178-FB77-CA6F-7CB38853078F</generatorID>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<engineerTo>
+<item key="031722E0-BD47-0AB3-5632-73438B0A9841" value="true"/>
+</engineerTo>
+<referedAttribute>457A5B9D-7D91-0DD1-C200-CD866535CA19</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="CD_USUARIO" id="753FDE0C-D8C2-CE74-0F95-C29385CB5E0F">
+<createdBy>User</createdBy>
+<createdTime>2025-05-29 00:40:47 UTC</createdTime>
+<generatorID>54EA723E-EF8E-9915-65AF-958D8C6432A0</generatorID>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<engineerTo>
+<item key="031722E0-BD47-0AB3-5632-73438B0A9841" value="true"/>
+</engineerTo>
+<referedAttribute>2ED3B1D9-E4B4-DE02-1246-0D63DD838F92</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="DT_MOMENTO_ACEITE" id="700449E7-3D71-C9DE-24DB-CF5C94FDDC99">
+<createdBy>User</createdBy>
+<createdTime>2025-05-29 00:09:07 UTC</createdTime>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<engineerTo>
+<item key="031722E0-BD47-0AB3-5632-73438B0A9841" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="DT_MOMENTO_CONCLUSAO" id="D223BD02-3BD7-5C81-A381-B3F220E7CD0A">
+<createdBy>User</createdBy>
+<createdTime>2025-05-29 00:10:46 UTC</createdTime>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<engineerTo>
+<item key="031722E0-BD47-0AB3-5632-73438B0A9841" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="DS_OBSERVACOES" id="3666B82E-D134-B4DC-7FDC-79A980B764FE">
+<createdBy>User</createdBy>
+<createdTime>2025-05-29 00:11:15 UTC</createdTime>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<engineerTo>
+<item key="031722E0-BD47-0AB3-5632-73438B0A9841" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>500</dataTypeSize>
+<ownDataTypeParameters>500,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="B90C15F2-453D-CFAE-28CC-D5B3E425423F" name="PK_ATENDIMENTO">
+<createdBy>User</createdBy>
+<createdTime>2025-05-29 00:07:47 UTC</createdTime>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="031722E0-BD47-0AB3-5632-73438B0A9841" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<newElementsIDs>4D0E8A88-498B-39AB-7DCF-41F9C12E10BD</newElementsIDs>
+<usedAttributes>
+<attributeRef>4D0E8A88-498B-39AB-7DCF-41F9C12E10BD</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

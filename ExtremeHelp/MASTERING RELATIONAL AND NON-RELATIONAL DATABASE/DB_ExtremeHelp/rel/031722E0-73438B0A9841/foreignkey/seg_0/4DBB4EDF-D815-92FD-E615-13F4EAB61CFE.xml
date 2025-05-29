@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="4DBB4EDF-D815-92FD-E615-13F4EAB61CFE" containerWithKeyObject="6E8939F3-7187-E2FF-A56D-AB7657B5FB31" localFKIndex="513DCA28-50F0-4191-7A25-333BECE2F588" name="T_EH_ATENDIMENTO_VOLUNTARIO_T_EH_PEDIDO_AJUDA_FK">
+<createdBy>User</createdBy>
+<createdTime>2025-05-29 00:49:01 UTC</createdTime>
+<generatorID>CBBB1A38-5178-FB77-CA6F-7CB38853078F</generatorID>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<referredTableLongName>T_EH_PEDIDO_AJUDA</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>E398E706-5E27-4541-1356-4A5C4523EC6F</referredTableID>
+<keyObject>6B15E8F5-0DF3-11BF-5154-DD4FE50A49A9</keyObject>
+<referredKeyID>6B15E8F5-0DF3-11BF-5154-DD4FE50A49A9</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>CD_PEDIDO</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

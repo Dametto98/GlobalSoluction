@@ -1,0 +1,152 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="E115A4E9-F802-8FF1-B874-B24162DA001E" name="T_EH_USUARIO">
+<createdBy>User</createdBy>
+<createdTime>2025-05-28 23:27:01 UTC</createdTime>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<engineerTo>
+<item key="031722E0-BD47-0AB3-5632-73438B0A9841" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="CD_USUARIO" id="2ED3B1D9-E4B4-DE02-1246-0D63DD838F92">
+<createdBy>User</createdBy>
+<createdTime>2025-05-28 23:27:27 UTC</createdTime>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<engineerTo>
+<item key="031722E0-BD47-0AB3-5632-73438B0A9841" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<ownDataTypeParameters>,8,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="NM_USUARIO" id="932A0481-BBB7-4F59-5C31-0E0A45E9B079">
+<createdBy>User</createdBy>
+<createdTime>2025-05-28 23:33:14 UTC</createdTime>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<engineerTo>
+<item key="031722E0-BD47-0AB3-5632-73438B0A9841" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200</dataTypeSize>
+<ownDataTypeParameters>200,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="DS_EMAIL" id="C92AC8E8-E647-E133-E42B-38EEE7320644">
+<createdBy>User</createdBy>
+<createdTime>2025-05-28 23:37:35 UTC</createdTime>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<engineerTo>
+<item key="031722E0-BD47-0AB3-5632-73438B0A9841" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>150</dataTypeSize>
+<ownDataTypeParameters>150,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="DS_SENHA" id="7C309A52-0BBB-A82B-A22E-D4004E7D05C6">
+<createdBy>User</createdBy>
+<createdTime>2025-05-28 23:40:36 UTC</createdTime>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<engineerTo>
+<item key="031722E0-BD47-0AB3-5632-73438B0A9841" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="DS_TELEFONE" id="96037BFD-DE8F-27E9-B5BD-31706C9D6335">
+<createdBy>User</createdBy>
+<createdTime>2025-05-28 23:41:05 UTC</createdTime>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<engineerTo>
+<item key="031722E0-BD47-0AB3-5632-73438B0A9841" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="DS_TIPO" id="09C6D49C-EDDD-0F52-2145-96C58CDD9962">
+<createdBy>User</createdBy>
+<createdTime>2025-05-28 23:41:43 UTC</createdTime>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<engineerTo>
+<item key="031722E0-BD47-0AB3-5632-73438B0A9841" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="DT_REGISTRO" id="A9D9AE96-D4A2-9768-98F4-CC64A706CE89">
+<createdBy>User</createdBy>
+<createdTime>2025-05-28 23:42:39 UTC</createdTime>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<engineerTo>
+<item key="031722E0-BD47-0AB3-5632-73438B0A9841" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="DS_STATUS" id="9A980EF4-71C2-3663-9D6B-4CEAA2972A25">
+<createdBy>User</createdBy>
+<createdTime>2025-05-28 23:43:28 UTC</createdTime>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<engineerTo>
+<item key="031722E0-BD47-0AB3-5632-73438B0A9841" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>1</dataTypePrecision>
+<ownDataTypeParameters>,1,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="3B111AEA-427C-EC47-A5BD-699522B52709" name="PK_USUARIO">
+<createdBy>User</createdBy>
+<createdTime>2025-05-28 23:28:13 UTC</createdTime>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="031722E0-BD47-0AB3-5632-73438B0A9841" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<newElementsIDs>2ED3B1D9-E4B4-DE02-1246-0D63DD838F92</newElementsIDs>
+<usedAttributes>
+<attributeRef>2ED3B1D9-E4B4-DE02-1246-0D63DD838F92</attributeRef>
+</usedAttributes>
+</identifier>
+<identifier id="155F7240-55C6-6F85-83CE-C0827172F143" name="UN_EH_EMAIL">
+<createdBy>User</createdBy>
+<createdTime>2025-05-28 23:38:08 UTC</createdTime>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="031722E0-BD47-0AB3-5632-73438B0A9841" value="false"/>
+</engineerTo>
+<newElementsIDs>C92AC8E8-E647-E133-E42B-38EEE7320644</newElementsIDs>
+<usedAttributes>
+<attributeRef>C92AC8E8-E647-E133-E42B-38EEE7320644</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

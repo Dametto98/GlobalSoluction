@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="FK_CD_PEDIDO_AJUDA" directorySegmentName="seg_0" id="CBBB1A38-5178-FB77-CA6F-7CB38853078F">
+<createdBy>User</createdBy>
+<createdTime>2025-05-29 00:39:18 UTC</createdTime>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<engineerTo>
+<item key="031722E0-BD47-0AB3-5632-73438B0A9841" value="true"/>
+</engineerTo>
+<sourcePk>1EECB737-4661-94E3-2052-8C8AF5FCD624</sourcePk>
+<identifying>false</identifying>
+<nameOnTarget>CD_PEDIDO_AJUDA</nameOnTarget>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>0BEC34AD-8EE6-DDFE-8BA3-6BBBD8416240</sourceEntity>
+<targetCardinalityString>1</targetCardinalityString>
+<targetEntity>F10C39B0-FD86-C939-A85D-C6F0C48ED410</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

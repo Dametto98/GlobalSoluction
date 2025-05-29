@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="DB_ExtremeHelp" id="6C18AB19-70D6-17B7-3E53-4C0E6FA1D675" version="3.5">
+<createdBy>User</createdBy>
+<createdTime>2025-05-28 23:26:41 UTC</createdTime>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>6C18AB19-70D6-17B7-3E53-4C0E6FA1D675</designId>
+</OSDM_Design>

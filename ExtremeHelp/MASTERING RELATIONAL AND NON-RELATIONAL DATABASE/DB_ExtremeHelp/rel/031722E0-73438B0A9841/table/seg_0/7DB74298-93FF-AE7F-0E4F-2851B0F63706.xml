@@ -1,0 +1,110 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="7DB74298-93FF-AE7F-0E4F-2851B0F63706" name="T_EH_ALERTA">
+<createdBy>User</createdBy>
+<createdTime>2025-05-29 00:49:01 UTC</createdTime>
+<generatorID>6CD095F7-5C79-16FD-5FB4-6F08D931C109</generatorID>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="CD_ALERTA" id="EA035BAB-B1A4-1EC3-34D5-277EE192CF90">
+<createdBy>User</createdBy>
+<createdTime>2025-05-29 00:49:01 UTC</createdTime>
+<generatorID>C8F82872-0CCE-46C1-C38E-AD1174DD0A5E</generatorID>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<ownDataTypeParameters>,8,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DS_TITULO" id="88495269-9D5F-A615-89B3-7232CDE1FBDD">
+<createdBy>User</createdBy>
+<createdTime>2025-05-29 00:49:01 UTC</createdTime>
+<generatorID>0292F375-5B99-AB18-D9FC-62BDD32884B3</generatorID>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>150</dataTypeSize>
+<ownDataTypeParameters>150,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DS_MENSAGEM" id="E76A8018-C2E7-7B4A-5285-913A415388C2">
+<createdBy>User</createdBy>
+<createdTime>2025-05-29 00:49:01 UTC</createdTime>
+<generatorID>B72B16EC-FB5F-3554-9891-265CFF90A8CA</generatorID>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>2000</dataTypeSize>
+<ownDataTypeParameters>2000,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DT_PUBLICACAO" id="331AA9E1-8394-BA91-88D0-78F22DB11789">
+<createdBy>User</createdBy>
+<createdTime>2025-05-29 00:49:01 UTC</createdTime>
+<generatorID>05D994F9-3B3A-40D1-D07E-750C21E9F046</generatorID>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DS_SERIEDADE" id="598A128A-5AA3-7D0F-97C2-EAEFE3C3AAB5">
+<createdBy>User</createdBy>
+<createdTime>2025-05-29 00:49:01 UTC</createdTime>
+<generatorID>DEF5748D-874E-D36B-C986-C852CDEFE696</generatorID>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DS_FONTE" id="28B04AAF-F9EA-D001-733E-F51D5190F02F">
+<createdBy>User</createdBy>
+<createdTime>2025-05-29 00:49:01 UTC</createdTime>
+<generatorID>99489BD7-6CE1-47F0-AA32-E041DABA3CD6</generatorID>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DS_ATIVO" id="C6AB19E3-60C5-79BA-AEC3-6F2AB6C3879B">
+<createdBy>User</createdBy>
+<createdTime>2025-05-29 00:49:01 UTC</createdTime>
+<generatorID>9CD08C1A-5ED0-77B0-8467-795D5710EB8B</generatorID>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>1</dataTypePrecision>
+<ownDataTypeParameters>,1,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="8C9AF4E4-7FC2-D41B-29E7-325B15BD56E9" name="T_EH_ALERTA_PK">
+<createdBy>User</createdBy>
+<createdTime>2025-05-29 00:49:01 UTC</createdTime>
+<generatorID>2A5EFD36-718D-A408-8170-2245FD9DCEFF</generatorID>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="EA035BAB-B1A4-1EC3-34D5-277EE192CF90"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

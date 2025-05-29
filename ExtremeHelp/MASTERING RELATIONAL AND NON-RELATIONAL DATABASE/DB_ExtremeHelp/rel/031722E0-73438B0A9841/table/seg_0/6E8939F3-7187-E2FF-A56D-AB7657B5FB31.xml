@@ -1,0 +1,139 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="6E8939F3-7187-E2FF-A56D-AB7657B5FB31" name="T_EH_ATENDIMENTO_VOLUNTARIO">
+<createdBy>User</createdBy>
+<createdTime>2025-05-29 00:49:01 UTC</createdTime>
+<generatorID>F10C39B0-FD86-C939-A85D-C6F0C48ED410</generatorID>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="CD_ATENDIMENTO" id="CE84F83C-3D6E-BCDF-733B-BBEA97B0EDC4">
+<createdBy>User</createdBy>
+<createdTime>2025-05-29 00:49:01 UTC</createdTime>
+<generatorID>4D0E8A88-498B-39AB-7DCF-41F9C12E10BD</generatorID>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<ownDataTypeParameters>,8,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="T_EH_PEDIDO_AJUDA_CD_PEDIDO" id="2170E088-C80F-059D-CF80-DFBCD2E24F5B">
+<createdBy>User</createdBy>
+<createdTime>2025-05-29 00:49:01 UTC</createdTime>
+<generatorID>1DA33916-B1CE-71EE-DE26-A2D4161D8F43</generatorID>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="4DBB4EDF-D815-92FD-E615-13F4EAB61CFE" referredColumn="68B4DE96-6CFF-F344-59ED-9BCD4D290BEA"/>
+</associations>
+</Column>
+<Column name="T_EH_USUARIO_CD_USUARIO" id="81F0EF2C-C6EE-1FAF-6787-C3A44FF818C3">
+<createdBy>User</createdBy>
+<createdTime>2025-05-29 00:49:01 UTC</createdTime>
+<generatorID>753FDE0C-D8C2-CE74-0F95-C29385CB5E0F</generatorID>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="130E2021-CD21-C5F5-C029-3F91A555F89C" referredColumn="BB3B897B-A7E1-9BFD-F72E-C70A7942D91C"/>
+</associations>
+</Column>
+<Column name="DT_MOMENTO_ACEITE" id="BE0FE5B9-0DDF-2B28-A9C1-14229FED3942">
+<createdBy>User</createdBy>
+<createdTime>2025-05-29 00:49:01 UTC</createdTime>
+<generatorID>700449E7-3D71-C9DE-24DB-CF5C94FDDC99</generatorID>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DT_MOMENTO_CONCLUSAO" id="E7E97EAD-E897-D18C-4BFC-2843CA8FBDD9">
+<createdBy>User</createdBy>
+<createdTime>2025-05-29 00:49:01 UTC</createdTime>
+<generatorID>D223BD02-3BD7-5C81-A381-B3F220E7CD0A</generatorID>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DS_OBSERVACOES" id="F5F0F352-378F-4ED8-132A-9F5172D31709">
+<createdBy>User</createdBy>
+<createdTime>2025-05-29 00:49:01 UTC</createdTime>
+<generatorID>3666B82E-D134-B4DC-7FDC-79A980B764FE</generatorID>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>500</dataTypeSize>
+<ownDataTypeParameters>500,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="E20B5CBB-B78F-B79B-AC76-52143DA4EC53" name="T_EH_ATENDIMENTO_VOLUNTARIO_PK">
+<createdBy>User</createdBy>
+<createdTime>2025-05-29 00:49:01 UTC</createdTime>
+<generatorID>B90C15F2-453D-CFAE-28CC-D5B3E425423F</generatorID>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CE84F83C-3D6E-BCDF-733B-BBEA97B0EDC4"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="61FD2B35-7B48-7906-3D6C-EAD812E3420B" name="T_EH_ATENDIMENTO_VOLUNTARIO__IDX">
+<createdBy>User</createdBy>
+<createdTime>2025-05-29 00:49:01 UTC</createdTime>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>CBBB1A38-5178-FB77-CA6F-7CB38853078F</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="2170E088-C80F-059D-CF80-DFBCD2E24F5B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="513DCA28-50F0-4191-7A25-333BECE2F588" name="T_EH_ATENDIMENTO_VOLUNTARIO_T_EH_PEDIDO_AJUDA_FK">
+<createdBy>User</createdBy>
+<createdTime>2025-05-29 00:49:01 UTC</createdTime>
+<generatorID>CBBB1A38-5178-FB77-CA6F-7CB38853078F</generatorID>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2170E088-C80F-059D-CF80-DFBCD2E24F5B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="A39ACDCE-FCD0-0305-8430-D5706F3D4C62" name="T_EH_ATENDIMENTO_VOLUNTARIO_T_EH_USUARIO_FK">
+<createdBy>User</createdBy>
+<createdTime>2025-05-29 00:49:01 UTC</createdTime>
+<generatorID>54EA723E-EF8E-9915-65AF-958D8C6432A0</generatorID>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="81F0EF2C-C6EE-1FAF-6787-C3A44FF818C3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

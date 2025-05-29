@@ -1,0 +1,156 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="0BEC34AD-8EE6-DDFE-8BA3-6BBBD8416240" name="T_EH_PEDIDO_AJUDA">
+<createdBy>User</createdBy>
+<createdTime>2025-05-28 23:49:24 UTC</createdTime>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<engineerTo>
+<item key="031722E0-BD47-0AB3-5632-73438B0A9841" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="CD_PEDIDO" id="457A5B9D-7D91-0DD1-C200-CD866535CA19">
+<createdBy>User</createdBy>
+<createdTime>2025-05-28 23:50:01 UTC</createdTime>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<engineerTo>
+<item key="031722E0-BD47-0AB3-5632-73438B0A9841" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<ownDataTypeParameters>,8,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="CD_USUARIO" id="0ACDF2B3-4FEC-5940-642E-FF31B10CDD9E">
+<createdBy>User</createdBy>
+<createdTime>2025-05-29 00:30:19 UTC</createdTime>
+<generatorID>B41A33D8-AD79-C5E2-A627-FA11BE8504D5</generatorID>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<engineerTo>
+<item key="031722E0-BD47-0AB3-5632-73438B0A9841" value="true"/>
+</engineerTo>
+<referedAttribute>2ED3B1D9-E4B4-DE02-1246-0D63DD838F92</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="DS_TIPO" id="7A4EF375-626C-A09D-297C-AD6C975ED621">
+<createdBy>User</createdBy>
+<createdTime>2025-05-28 23:52:10 UTC</createdTime>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<engineerTo>
+<item key="031722E0-BD47-0AB3-5632-73438B0A9841" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="DS_DESCRICAO" id="55D5180F-95F1-ED86-1FC2-AD049183AF1C">
+<createdBy>User</createdBy>
+<createdTime>2025-05-28 23:56:41 UTC</createdTime>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<engineerTo>
+<item key="031722E0-BD47-0AB3-5632-73438B0A9841" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1000</dataTypeSize>
+<ownDataTypeParameters>1000,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="DS_LATITUDE" id="2939DE45-3B72-AC8E-C34C-DE1298FF3936">
+<createdBy>User</createdBy>
+<createdTime>2025-05-28 23:59:35 UTC</createdTime>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<engineerTo>
+<item key="031722E0-BD47-0AB3-5632-73438B0A9841" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>7</dataTypeScale>
+<ownDataTypeParameters>,10,7</ownDataTypeParameters>
+</Attribute>
+<Attribute name="DS_LONGITUDE" id="3F37C756-0F5C-34CD-B2E0-4B1A344EAAD0">
+<createdBy>User</createdBy>
+<createdTime>2025-05-29 00:00:43 UTC</createdTime>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<engineerTo>
+<item key="031722E0-BD47-0AB3-5632-73438B0A9841" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>7</dataTypeScale>
+<ownDataTypeParameters>,10,7</ownDataTypeParameters>
+</Attribute>
+<Attribute name="DS_ENDERECO" id="93E17446-3402-C11A-29B9-E16E5100F2B1">
+<createdBy>User</createdBy>
+<createdTime>2025-05-29 00:01:10 UTC</createdTime>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<engineerTo>
+<item key="031722E0-BD47-0AB3-5632-73438B0A9841" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>300</dataTypeSize>
+<ownDataTypeParameters>300,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="DT_PEDIDO" id="DA8C834B-0E26-0249-99F4-628249B7F2E5">
+<createdBy>User</createdBy>
+<createdTime>2025-05-29 00:01:50 UTC</createdTime>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<engineerTo>
+<item key="031722E0-BD47-0AB3-5632-73438B0A9841" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="DS_STATUS" id="9D39D1AD-4B7D-BBA7-CC01-BC3E0766040F">
+<createdBy>User</createdBy>
+<createdTime>2025-05-29 00:02:48 UTC</createdTime>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<engineerTo>
+<item key="031722E0-BD47-0AB3-5632-73438B0A9841" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="1EECB737-4661-94E3-2052-8C8AF5FCD624" name="PK_PEDIDO_AJUDA">
+<createdBy>User</createdBy>
+<createdTime>2025-05-28 23:50:49 UTC</createdTime>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="031722E0-BD47-0AB3-5632-73438B0A9841" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<newElementsIDs>457A5B9D-7D91-0DD1-C200-CD866535CA19</newElementsIDs>
+<usedAttributes>
+<attributeRef>457A5B9D-7D91-0DD1-C200-CD866535CA19</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

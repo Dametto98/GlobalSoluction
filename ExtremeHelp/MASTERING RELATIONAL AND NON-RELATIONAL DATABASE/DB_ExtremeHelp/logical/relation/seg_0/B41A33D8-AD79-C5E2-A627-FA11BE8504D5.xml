@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="FK_CD_SOLICITANTE" directorySegmentName="seg_0" id="B41A33D8-AD79-C5E2-A627-FA11BE8504D5">
+<createdBy>User</createdBy>
+<createdTime>2025-05-29 00:30:19 UTC</createdTime>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<engineerTo>
+<item key="031722E0-BD47-0AB3-5632-73438B0A9841" value="true"/>
+</engineerTo>
+<sourcePk>3B111AEA-427C-EC47-A5BD-699522B52709</sourcePk>
+<identifying>false</identifying>
+<nameOnTarget>CD_SOLICITANTE</nameOnTarget>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>E115A4E9-F802-8FF1-B874-B24162DA001E</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>0BEC34AD-8EE6-DDFE-8BA3-6BBBD8416240</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

@@ -1,0 +1,151 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="E398E706-5E27-4541-1356-4A5C4523EC6F" name="T_EH_PEDIDO_AJUDA">
+<createdBy>User</createdBy>
+<createdTime>2025-05-29 00:49:01 UTC</createdTime>
+<generatorID>0BEC34AD-8EE6-DDFE-8BA3-6BBBD8416240</generatorID>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="CD_PEDIDO" id="68B4DE96-6CFF-F344-59ED-9BCD4D290BEA">
+<createdBy>User</createdBy>
+<createdTime>2025-05-29 00:49:01 UTC</createdTime>
+<generatorID>457A5B9D-7D91-0DD1-C200-CD866535CA19</generatorID>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<ownDataTypeParameters>,8,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="T_EH_USUARIO_CD_USUARIO" id="903C67A0-29E9-5F66-0D1E-F9A6A67A2278">
+<createdBy>User</createdBy>
+<createdTime>2025-05-29 00:49:01 UTC</createdTime>
+<generatorID>0ACDF2B3-4FEC-5940-642E-FF31B10CDD9E</generatorID>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="7D351139-3CC4-C9BB-7692-EA12EEF7C540" referredColumn="BB3B897B-A7E1-9BFD-F72E-C70A7942D91C"/>
+</associations>
+</Column>
+<Column name="DS_TIPO" id="7F894F73-9F0B-9ECC-7176-612B17275ABA">
+<createdBy>User</createdBy>
+<createdTime>2025-05-29 00:49:01 UTC</createdTime>
+<generatorID>7A4EF375-626C-A09D-297C-AD6C975ED621</generatorID>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DS_DESCRICAO" id="1021671B-9109-F2CC-6583-E45EAF04DF7A">
+<createdBy>User</createdBy>
+<createdTime>2025-05-29 00:49:01 UTC</createdTime>
+<generatorID>55D5180F-95F1-ED86-1FC2-AD049183AF1C</generatorID>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1000</dataTypeSize>
+<ownDataTypeParameters>1000,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DS_LATITUDE" id="D08F1329-ADFA-60DA-C897-D46C0902B93B">
+<createdBy>User</createdBy>
+<createdTime>2025-05-29 00:49:01 UTC</createdTime>
+<generatorID>2939DE45-3B72-AC8E-C34C-DE1298FF3936</generatorID>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>7</dataTypeScale>
+<ownDataTypeParameters>,10,7</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DS_LONGITUDE" id="FF6297BD-68C5-F547-D454-7E4090EBD0BC">
+<createdBy>User</createdBy>
+<createdTime>2025-05-29 00:49:01 UTC</createdTime>
+<generatorID>3F37C756-0F5C-34CD-B2E0-4B1A344EAAD0</generatorID>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>7</dataTypeScale>
+<ownDataTypeParameters>,10,7</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DS_ENDERECO" id="99951FCC-5390-E53B-5489-2D5965F741CF">
+<createdBy>User</createdBy>
+<createdTime>2025-05-29 00:49:01 UTC</createdTime>
+<generatorID>93E17446-3402-C11A-29B9-E16E5100F2B1</generatorID>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>300</dataTypeSize>
+<ownDataTypeParameters>300,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DT_PEDIDO" id="646C6C0C-7B91-267D-4FBB-94E4D5EE133B">
+<createdBy>User</createdBy>
+<createdTime>2025-05-29 00:49:01 UTC</createdTime>
+<generatorID>DA8C834B-0E26-0249-99F4-628249B7F2E5</generatorID>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DS_STATUS" id="8CCB4665-D8C5-46A6-7BF6-AB8272C898FC">
+<createdBy>User</createdBy>
+<createdTime>2025-05-29 00:49:01 UTC</createdTime>
+<generatorID>9D39D1AD-4B7D-BBA7-CC01-BC3E0766040F</generatorID>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="6B15E8F5-0DF3-11BF-5154-DD4FE50A49A9" name="T_EH_PEDIDO_AJUDA_PK">
+<createdBy>User</createdBy>
+<createdTime>2025-05-29 00:49:01 UTC</createdTime>
+<generatorID>1EECB737-4661-94E3-2052-8C8AF5FCD624</generatorID>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="68B4DE96-6CFF-F344-59ED-9BCD4D290BEA"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="7349C5BB-63F0-9115-608F-489DDD328D2E" name="T_EH_PEDIDO_AJUDA_T_EH_USUARIO_FK">
+<createdBy>User</createdBy>
+<createdTime>2025-05-29 00:49:01 UTC</createdTime>
+<generatorID>B41A33D8-AD79-C5E2-A627-FA11BE8504D5</generatorID>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="903C67A0-29E9-5F66-0D1E-F9A6A67A2278"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

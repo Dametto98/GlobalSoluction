@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="FK_VOLUNTARIO" directorySegmentName="seg_0" id="54EA723E-EF8E-9915-65AF-958D8C6432A0">
+<createdBy>User</createdBy>
+<createdTime>2025-05-29 00:40:47 UTC</createdTime>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<engineerTo>
+<item key="031722E0-BD47-0AB3-5632-73438B0A9841" value="true"/>
+</engineerTo>
+<sourcePk>3B111AEA-427C-EC47-A5BD-699522B52709</sourcePk>
+<identifying>false</identifying>
+<nameOnTarget>CD_VOLUNTARIO</nameOnTarget>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>E115A4E9-F802-8FF1-B874-B24162DA001E</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>F10C39B0-FD86-C939-A85D-C6F0C48ED410</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

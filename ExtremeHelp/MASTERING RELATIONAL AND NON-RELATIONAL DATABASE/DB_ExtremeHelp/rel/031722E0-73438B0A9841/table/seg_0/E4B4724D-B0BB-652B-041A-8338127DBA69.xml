@@ -1,0 +1,133 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="E4B4724D-B0BB-652B-041A-8338127DBA69" name="T_EH_USUARIO">
+<createdBy>User</createdBy>
+<createdTime>2025-05-29 00:49:01 UTC</createdTime>
+<generatorID>E115A4E9-F802-8FF1-B874-B24162DA001E</generatorID>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="CD_USUARIO" id="BB3B897B-A7E1-9BFD-F72E-C70A7942D91C">
+<createdBy>User</createdBy>
+<createdTime>2025-05-29 00:49:01 UTC</createdTime>
+<generatorID>2ED3B1D9-E4B4-DE02-1246-0D63DD838F92</generatorID>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<ownDataTypeParameters>,8,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NM_USUARIO" id="D0F93D0D-E5D1-CC75-6008-9494487C0798">
+<createdBy>User</createdBy>
+<createdTime>2025-05-29 00:49:01 UTC</createdTime>
+<generatorID>932A0481-BBB7-4F59-5C31-0E0A45E9B079</generatorID>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200</dataTypeSize>
+<ownDataTypeParameters>200,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DS_EMAIL" id="A324ACC1-8B28-4A02-8DA0-61791FEC0CA2">
+<createdBy>User</createdBy>
+<createdTime>2025-05-29 00:49:01 UTC</createdTime>
+<generatorID>C92AC8E8-E647-E133-E42B-38EEE7320644</generatorID>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>150</dataTypeSize>
+<ownDataTypeParameters>150,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DS_SENHA" id="86D99918-C0FC-F02E-F61D-F309217D4CD9">
+<createdBy>User</createdBy>
+<createdTime>2025-05-29 00:49:01 UTC</createdTime>
+<generatorID>7C309A52-0BBB-A82B-A22E-D4004E7D05C6</generatorID>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DS_TELEFONE" id="809F23A6-A51A-D30A-0B6B-CF1B35E1D5CE">
+<createdBy>User</createdBy>
+<createdTime>2025-05-29 00:49:01 UTC</createdTime>
+<generatorID>96037BFD-DE8F-27E9-B5BD-31706C9D6335</generatorID>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DS_TIPO" id="BAB38434-181A-988D-C739-929147D723D2">
+<createdBy>User</createdBy>
+<createdTime>2025-05-29 00:49:01 UTC</createdTime>
+<generatorID>09C6D49C-EDDD-0F52-2145-96C58CDD9962</generatorID>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DT_REGISTRO" id="FF4E649B-A10E-8636-EF95-BEE007E945E4">
+<createdBy>User</createdBy>
+<createdTime>2025-05-29 00:49:01 UTC</createdTime>
+<generatorID>A9D9AE96-D4A2-9768-98F4-CC64A706CE89</generatorID>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DS_STATUS" id="650FC393-CE53-F93A-5F80-8430FEE34FBD">
+<createdBy>User</createdBy>
+<createdTime>2025-05-29 00:49:01 UTC</createdTime>
+<generatorID>9A980EF4-71C2-3663-9D6B-4CEAA2972A25</generatorID>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>1</dataTypePrecision>
+<ownDataTypeParameters>,1,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="A59717A4-F22A-7597-7E9E-95C5FC4BC64B" name="T_EH_USUARIO_PK">
+<createdBy>User</createdBy>
+<createdTime>2025-05-29 00:49:01 UTC</createdTime>
+<generatorID>3B111AEA-427C-EC47-A5BD-699522B52709</generatorID>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BB3B897B-A7E1-9BFD-F72E-C70A7942D91C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="1F05B147-6BC9-18AB-D205-E0438AB19F71" name="T_EH_USUARIO_DS_EMAIL_UN">
+<createdBy>User</createdBy>
+<createdTime>2025-05-29 00:49:01 UTC</createdTime>
+<generatorID>155F7240-55C6-6F85-83CE-C0827172F143</generatorID>
+<ownerDesignName>DB_ExtremeHelp</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A324ACC1-8B28-4A02-8DA0-61791FEC0CA2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
