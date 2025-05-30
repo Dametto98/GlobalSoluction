@@ -1,0 +1,156 @@
+1. CONFIGURAÇÃO DO AMBIENTE E IMPORTAÇÕES ESSENCIAIS
+Nesta seção, importamos as bibliotecas necessárias para o projeto.
+
+TensorFlow e Keras: Para construir e treinar a rede neural.
+
+NumPy: Para manipulação numérica eficiente.
+
+Matplotlib e Seaborn: Para visualização de dados e resultados.
+
+OS: Para interagir com o sistema de arquivos (gerenciar caminhos e diretórios).
+
+2. DEFINIÇÃO DE PARÂMETROS E CAMINHOS PARA O DATASET
+Aqui, definimos constantes que serão usadas ao longo do notebook. Isso inclui:
+
+Dimensões das imagens (IMAGE_WIDTH, IMAGE_HEIGHT, IMAGE_SIZE).
+
+Número de canais de cor (IMAGE_CHANNELS: 3 para RGB, 1 para escala de cinza).
+
+Tamanho do batch para treinamento (BATCH_SIZE).
+
+Número máximo de épocas de treinamento (EPOCHS).
+
+O número de classes (NUM_CLASSES) será determinado dinamicamente a partir dos dados carregados.
+
+ATENÇÃO: Você PRECISARÁ ATUALIZAR o caminho BASE_DIR para o local onde o seu dataset de imagens está armazenado.
+
+Estrutura do Dataset Esperada:
+Organize suas imagens na seguinte estrutura de pastas:
+
+lua
+Copiar
+Editar
+seu_diretorio_base_do_dataset/
+|-- train/
+|   |-- classe_A/  (ex: enchente)
+|   |   |-- img1.jpg
+|   |   |-- img2.jpg
+|   +-- ...
+|   |-- classe_B/  (ex: incendio)
+|   |   |-- img1.jpg
+|   +-- ...
+|
+|-- validation/  (ou 'val', 'test')
+|   |-- classe_A/
+|   |   |-- img1.jpg
+|   +-- ...
+|   |-- classe_B/
+|   |   |-- img1.jpg
+|   +-- ...
+Importante: As subpastas dentro de train e validation devem ter os mesmos nomes, pois eles serão usados como os rótulos das classes.
+
+3. PREPARAÇÃO DOS GERADORES DE DADOS (ImageDataGenerator)
+ImageDataGenerator é uma ferramenta do Keras para:
+
+Carregar imagens diretamente do disco, organizadas em pastas por classe.
+
+Aplicar Data Augmentation em tempo real durante o treinamento.
+
+Data Augmentation:
+
+Aumenta artificialmente o dataset de treino aplicando transformações aleatórias (rotação, zoom etc.).
+
+Ajuda o modelo a generalizar melhor e evitar overfitting.
+
+Normalização:
+
+O parâmetro rescale=1./255 normaliza os valores dos pixels das imagens para o intervalo [0,1].
+
+Geradores:
+
+train_generator: Aplica data augmentation e normalização.
+
+validation_generator: Aplica apenas normalização.
+
+flow_from_directory: Carrega as imagens e infere as classes a partir das subpastas.
+
+4. VISUALIZAÇÃO DE AMOSTRAS DE IMAGENS (Opcional)
+É uma boa prática visualizar algumas imagens do dataset, especialmente após o Data Augmentation, para garantir que estão sendo carregadas e processadas corretamente. Esta função plota um grid de imagens do gerador de treino.
+
+5. CONSTRUÇÃO DO MODELO DE REDE NEURAL CONVOLUCIONAL (CNN)
+Esta é uma arquitetura CNN simples, ideal para começar.
+
+Componentes:
+
+Conv2D: Extrai características como bordas e texturas.
+
+MaxPooling2D: Reduz a dimensionalidade, mantendo informações importantes.
+
+Flatten: Transforma a saída 2D/3D em um vetor 1D.
+
+Dense: Camadas totalmente conectadas para classificação.
+
+Dropout: Regularização para prevenir overfitting, desativando aleatoriamente neurônios durante o treinamento.
+
+6. COMPILAÇÃO E TREINAMENTO DO MODELO
+Compilação:
+Otimizador (optimizer): adam é uma escolha popular e eficiente.
+
+Função de Perda (loss): categorical_crossentropy é usada para classificação multi-classe com one-hot encoding.
+
+Métricas (metrics): accuracy é comum para tarefas de classificação.
+
+Callbacks:
+EarlyStopping: Interrompe o treinamento se a performance não melhorar após certo número de épocas.
+
+ModelCheckpoint: Salva o modelo com a melhor performance em uma métrica.
+
+Treinamento com model.fit:
+train_generator: Dados de treino.
+
+epochs: Número de épocas.
+
+validation_data: Dados de validação.
+
+callbacks: Lista de callbacks usados.
+
+7. AVALIAÇÃO DO DESEMPENHO DO MODELO
+Após o treinamento, avaliamos o desempenho no conjunto de validação.
+
+Gráficos de Acurácia e Perda:
+Mostram como a acurácia e a perda evoluíram nas épocas.
+
+Ajudam a identificar overfitting ou underfitting.
+
+Métricas:
+model.evaluate: Avalia o modelo.
+
+Matriz de Confusão: Mostra erros de classificação por classe.
+
+Relatório de Classificação (classification_report):
+
+Precisão: Correção das previsões de uma classe.
+
+Recall: Cobertura das instâncias reais de uma classe.
+
+F1-Score: Média harmônica entre precisão e recall.
+
+Support: Número real de amostras por classe.
+
+8. TESTE DO MODELO COM NOVAS IMAGENS (Exemplo)
+Demonstra como usar o modelo treinado para prever uma nova imagem.
+
+Passos:
+Carregar a imagem do disco.
+
+Redimensionar para IMAGE_SIZE.
+
+Converter para array NumPy.
+
+Normalizar os pixels (dividir por 255.0).
+
+Expandir dimensões para formar um batch.
+
+Usar model.predict() para prever.
+
+Identificar a classe com maior probabilidade.
