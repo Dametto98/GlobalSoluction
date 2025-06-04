@@ -1,139 +1,113 @@
-CREATE OR REPLACE PROCEDURE sp_inserir_dica_preparacao (
-    p_ds_titulo IN VARCHAR2,
-    p_ds_contudo IN CLOB,
-    p_ds_categoria IN VARCHAR2,
-    p_cd_dica OUT NUMBER
-) AS
+--Nome: Caike Dametto RM: 558614
+--Nome: Guilhetme Janunzzi RM: 558461
+
+--INSERT
+REATE OR REPLACE PROCEDURE PRC_INSERT_DICA (
+    p_ds_titulo             IN T_EH_DICA_PREPARACAO.DS_TITULO%TYPE,
+    p_ds_conteudo           IN T_EH_DICA_PREPARACAO.DS_CONTEUDO%TYPE,
+    p_ds_categoria          IN T_EH_DICA_PREPARACAO.DS_CATEGORIA%TYPE,
+    p_dt_ultima_atualizacao IN T_EH_DICA_PREPARACAO.DT_ULTIMA_ATUALIZACAO%TYPE
+)
+IS
 BEGIN
-    -- Gerar novo ID
-    SELECT NVL(MAX(CD_DICA), 0) + 1 INTO p_cd_dica FROM T_EH_DICA_PREPARACAO;
-    
-    -- Inserir nova dica
     INSERT INTO T_EH_DICA_PREPARACAO (
         CD_DICA,
         DS_TITULO,
-        DS_CONTRUDO,
+        DS_CONTEUDO,
         DS_CATEGORIA,
         DT_ULTIMA_ATUALIZACAO
     ) VALUES (
-        p_cd_dica,
+        SEQ_EH_DICA_PREPARACAO.NEXTVAL,
         p_ds_titulo,
-        p_ds_contudo,
+        p_ds_conteudo,
         p_ds_categoria,
-        SYSDATE
+        p_dt_ultima_atualizacao
     );
-    
     COMMIT;
-    DBMS_OUTPUT.PUT_LINE('Dica de preparação inserida com sucesso. ID: ' || p_cd_dica);
 EXCEPTION
     WHEN OTHERS THEN
         ROLLBACK;
-        DBMS_OUTPUT.PUT_LINE('Erro ao inserir dica de preparação: ' || SQLERRM);
         RAISE;
-END sp_inserir_dica_preparacao;
+END PRC_INSERT_DICA;
 /
 
-CREATE OR REPLACE PROCEDURE sp_atualizar_dica_preparacao (
-    p_cd_dica IN NUMBER,
-    p_ds_titulo IN VARCHAR2 DEFAULT NULL,
-    p_ds_contudo IN CLOB DEFAULT NULL,
-    p_ds_categoria IN VARCHAR2 DEFAULT NULL
-) AS
-    v_count NUMBER;
+--UPDATE
+CREATE OR REPLACE PROCEDURE PRC_UPDATE_DICA (
+    p_cd_dica               IN T_EH_DICA_PREPARACAO.CD_DICA%TYPE,
+    p_ds_titulo             IN T_EH_DICA_PREPARACAO.DS_TITULO%TYPE DEFAULT NULL,
+    p_ds_conteudo           IN T_EH_DICA_PREPARACAO.DS_CONTEUDO%TYPE DEFAULT NULL,
+    p_ds_categoria          IN T_EH_DICA_PREPARACAO.DS_CATEGORIA%TYPE DEFAULT NULL,
+    p_dt_ultima_atualizacao IN T_EH_DICA_PREPARACAO.DT_ULTIMA_ATUALIZACAO%TYPE DEFAULT NULL
+)
+IS
 BEGIN
-    -- Verificar se a dica existe
-    SELECT COUNT(*) INTO v_count FROM T_EH_DICA_PREPARACAO WHERE CD_DICA = p_cd_dica;
-    
-    IF v_count = 0 THEN
-        DBMS_OUTPUT.PUT_LINE('Dica não encontrada.');
-        RETURN;
-    END IF;
-    
-    -- Atualizar apenas os campos fornecidos
-    UPDATE T_EH_DICA_PREPARACAO SET
+    UPDATE T_EH_DICA_PREPARACAO
+    SET
         DS_TITULO = NVL(p_ds_titulo, DS_TITULO),
-        DS_CONTRUDO = NVL(p_ds_contudo, DS_CONTRUDO),
+        DS_CONTEUDO = NVL(p_ds_conteudo, DS_CONTEUDO),
         DS_CATEGORIA = NVL(p_ds_categoria, DS_CATEGORIA),
-        DT_ULTIMA_ATUALIZACAO = SYSDATE
+        DT_ULTIMA_ATUALIZACAO = NVL(p_dt_ultima_atualizacao, DT_ULTIMA_ATUALIZACAO)
+    WHERE
+        CD_DICA = p_cd_dica;
+    COMMIT;
+EXCEPTION
+    WHEN OTHERS THEN
+        ROLLBACK;
+        RAISE;
+END PRC_UPDATE_DICA;
+/
+
+--DELETE
+CREATE OR REPLACE PROCEDURE PRC_DELETE_DICA (
+    p_cd_dica IN T_EH_DICA_PREPARACAO.CD_DICA%TYPE
+)
+IS
+BEGIN
+    DELETE FROM T_EH_DICA_PREPARACAO
     WHERE CD_DICA = p_cd_dica;
-    
     COMMIT;
-    DBMS_OUTPUT.PUT_LINE('Dica de preparação atualizada com sucesso.');
 EXCEPTION
     WHEN OTHERS THEN
         ROLLBACK;
-        DBMS_OUTPUT.PUT_LINE('Erro ao atualizar dica de preparação: ' || SQLERRM);
         RAISE;
-END sp_atualizar_dica_preparacao;
+END PRC_DELETE_DICA;
 /
 
-CREATE OR REPLACE PROCEDURE sp_excluir_dica_preparacao (
-    p_cd_dica IN NUMBER
-) AS
-    v_count NUMBER;
+--Inserindo dados
 BEGIN
-    -- Verificar se a dica existe
-    SELECT COUNT(*) INTO v_count FROM T_EH_DICA_PREPARACAO WHERE CD_DICA = p_cd_dica;
-    
-    IF v_count = 0 THEN
-        DBMS_OUTPUT.PUT_LINE('Dica não encontrada.');
-        RETURN;
-    END IF;
-    
-    -- Excluir dica
-    DELETE FROM T_EH_DICA_PREPARACAO WHERE CD_DICA = p_cd_dica;
-    
-    COMMIT;
-    DBMS_OUTPUT.PUT_LINE('Dica de preparação excluída com sucesso.');
-EXCEPTION
-    WHEN OTHERS THEN
-        ROLLBACK;
-        DBMS_OUTPUT.PUT_LINE('Erro ao excluir dica de preparação: ' || SQLERRM);
-        RAISE;
-END sp_excluir_dica_preparacao;
-/
+    PRC_INSERT_DICA(
+        p_ds_titulo             => 'Como Montar seu Kit de Emergência Básico',
+        p_ds_conteudo           => 'Um kit de emergência deve conter: água potável (1 galão por pessoa por dia, para 3 dias), alimentos não perecíveis (para 3 dias), rádio a pilha ou manivela, lanterna, pilhas extras, kit de primeiros socorros, apito para pedir ajuda, máscara contra poeira, lenços umedecidos, sacos de lixo, chave inglesa ou alicate para fechar registros, abridor de latas manual, mapas locais e celular carregado com carregador portátil.',
+        p_ds_categoria          => 'Prevenção',
+        p_dt_ultima_atualizacao => TO_DATE('2025-05-15 09:30:00', 'YYYY-MM-DD HH24:MI:SS')
+    );
 
-DECLARE
-    v_dica_id NUMBER;
-BEGIN
-    -- Dica 1
-    sp_inserir_dica_preparacao(
-        'Kit de emergência básico', 
-        'Prepare um kit com: água (3 litros por pessoa), alimentos não perecíveis, lanternas, rádio a pilhas, kit de primeiros socorros, documentos importantes e medicamentos essenciais.', 
-        'GERAL', 
-        v_dica_id
+    PRC_INSERT_DICA(
+        p_ds_titulo             => 'O que Fazer em Caso de Alagamento em Casa',
+        p_ds_conteudo           => '1. Mantenha a calma. 2. Desligue a energia elétrica, o gás e a água. 3. Vá para um local seguro e elevado. 4. Evite contato com a água da enchente, pode estar contaminada. 5. Separe documentos importantes em local protegido. 6. Ouça as informações e alertas das autoridades.',
+        p_ds_categoria          => 'Segurança',
+        p_dt_ultima_atualizacao => TO_DATE('2025-05-28 11:00:00', 'YYYY-MM-DD HH24:MI:SS')
     );
-    
-    -- Dica 2
-    sp_inserir_dica_preparacao(
-        'O que fazer durante enchentes', 
-        '1. Evite contato com a água da enchente\n2. Desligue a energia elétrica se a água entrar em casa\n3. Não tente dirigir em áreas alagadas\n4. Siga para áreas elevadas', 
-        'ENCHENTE', 
-        v_dica_id
+
+    PRC_INSERT_DICA(
+        p_ds_titulo             => 'Prevenção Contra Dengue, Zika e Chikungunya',
+        p_ds_conteudo           => 'Elimine focos de água parada: verifique vasos de plantas, pneus velhos, calhas, garrafas e outros recipientes. Use repelente, especialmente em áreas de mata ou com muitos mosquitos. Instale telas em janelas e portas. Mantenha caixas d''água bem vedadas.',
+        p_ds_categoria          => 'Saúde',
+        p_dt_ultima_atualizacao => SYSDATE - INTERVAL '7' DAY -- Atualizado 7 dias atrás
     );
-    
-    -- Dica 3
-    sp_inserir_dica_preparacao(
-        'Preparação para tempestades', 
-        'Proteja janelas com tábuas ou persianas, guarde objetos que possam ser levados pelo vento, tenha um local seguro no interior da casa e monitore alertas oficiais.', 
-        'TEMPESTADE', 
-        v_dica_id
+
+    PRC_INSERT_DICA(
+        p_ds_titulo             => 'Como Agir em Caso de Incêndio Florestal Próximo',
+        p_ds_conteudo           => '1. Ligue para os bombeiros (193) imediatamente. 2. Se o fogo estiver próximo, evacue a área em direção oposta ao vento. 3. Cubra nariz e boca com um pano úmido. 4. Feche portas e janelas da sua casa. 5. Remova materiais inflamáveis de perto da residência. 6. Siga as instruções das autoridades.',
+        p_ds_categoria          => 'Segurança',
+        p_dt_ultima_atualizacao => SYSDATE - INTERVAL '2' MONTH -- Atualizado 2 meses atrás
     );
-    
-    -- Dica 4
-    sp_inserir_dica_preparacao(
-        'Plano familiar de emergência', 
-        'Combine com sua família:\n1. Um local seguro para se encontrar\n2. Contatos de emergência\n3. Rotas de fuga da casa\n4. Responsabilidades de cada um', 
-        'GERAL', 
-        v_dica_id
-    );
-    
-    -- Dica 5
-    sp_inserir_dica_preparacao(
-        'Cuidados com alimentos após falta de energia', 
-        'Mantenha a geladeira fechada (dura até 4h), use gelo seco se possível, descarte alimentos perecíveis que ficaram acima de 5°C por mais de 2 horas.', 
-        'ALIMENTACAO', 
-        v_dica_id
+
+    PRC_INSERT_DICA(
+        p_ds_titulo             => 'Importância da Hidratação em Dias Quentes',
+        p_ds_conteudo           => 'Beba água regularmente, mesmo sem sentir sede. Aumente a ingestão de líquidos durante atividades físicas ou em dias de calor intenso. Ofereça água frequentemente para crianças e idosos. Sucos naturais e água de coco também são boas opções. Evite bebidas açucaradas ou alcoólicas em excesso, pois podem desidratar.',
+        p_ds_categoria          => 'Saúde',
+        p_dt_ultima_atualizacao => SYSDATE -- Atualizado hoje
     );
 END;
 /

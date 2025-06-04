@@ -1,27 +1,19 @@
-CREATE OR REPLACE PROCEDURE sp_inserir_pedido_ajuda (
-    p_cd_usuario IN NUMBER,
-    p_ds_tipo IN VARCHAR2,
-    p_ds_descricao IN VARCHAR2,
-    p_ds_latitude IN NUMBER,
-    p_ds_longitude IN NUMBER,
-    p_ds_endereco IN VARCHAR2 DEFAULT NULL,
-    p_ds_status IN VARCHAR2,
-    p_cd_pedido OUT NUMBER
-) AS
-    v_usuario_existe NUMBER;
+--Nome: Caike Dametto RM: 558614
+--Nome: Guilhetme Janunzzi RM: 558461
+
+--INSERT
+CREATE OR REPLACE PROCEDURE PRC_INSERT_PEDIDO_AJUDA (
+    p_cd_usuario        IN T_EH_PEDIDO_AJUDA.CD_USUARIO%TYPE,
+    p_ds_tipo           IN T_EH_PEDIDO_AJUDA.DS_TIPO%TYPE,
+    p_ds_descricao      IN T_EH_PEDIDO_AJUDA.DS_DESCRICAO%TYPE,
+    p_ds_latitude       IN T_EH_PEDIDO_AJUDA.DS_LATITUDE%TYPE,
+    p_ds_longitude      IN T_EH_PEDIDO_AJUDA.DS_LONGITUDE%TYPE,
+    p_ds_endereco       IN T_EH_PEDIDO_AJUDA.DS_ENDERECO%TYPE DEFAULT NULL,
+    p_dt_pedido         IN T_EH_PEDIDO_AJUDA.DT_PEDIDO%TYPE,
+    p_ds_status         IN T_EH_PEDIDO_AJUDA.DS_STATUS%TYPE
+)
+IS
 BEGIN
-    -- Verificar se o usuário existe
-    SELECT COUNT(*) INTO v_usuario_existe FROM T_EH_USUARIO WHERE CD_USUARIO = p_cd_usuario;
-    
-    IF v_usuario_existe = 0 THEN
-        DBMS_OUTPUT.PUT_LINE('Usuário não encontrado.');
-        RETURN;
-    END IF;
-    
-    -- Gerar novo ID
-    SELECT NVL(MAX(CD_PEDIDO), 0) + 1 INTO p_cd_pedido FROM T_EH_PEDIDO_AJUDA;
-    
-    -- Inserir novo pedido
     INSERT INTO T_EH_PEDIDO_AJUDA (
         CD_PEDIDO,
         CD_USUARIO,
@@ -33,164 +25,129 @@ BEGIN
         DT_PEDIDO,
         DS_STATUS
     ) VALUES (
-        p_cd_pedido,
+        SEQ_EH_PEDIDO_AJUDA.NEXTVAL,
         p_cd_usuario,
         p_ds_tipo,
         p_ds_descricao,
         p_ds_latitude,
         p_ds_longitude,
         p_ds_endereco,
-        SYSDATE,
+        p_dt_pedido,
         p_ds_status
     );
-    
     COMMIT;
-    DBMS_OUTPUT.PUT_LINE('Pedido de ajuda inserido com sucesso. ID: ' || p_cd_pedido);
 EXCEPTION
     WHEN OTHERS THEN
         ROLLBACK;
-        DBMS_OUTPUT.PUT_LINE('Erro ao inserir pedido de ajuda: ' || SQLERRM);
         RAISE;
-END sp_inserir_pedido_ajuda;
+END PRC_INSERT_PEDIDO_AJUDA;
 /
 
-CREATE OR REPLACE PROCEDURE sp_atualizar_pedido_ajuda (
-    p_cd_pedido IN NUMBER,
-    p_ds_tipo IN VARCHAR2 DEFAULT NULL,
-    p_ds_descricao IN VARCHAR2 DEFAULT NULL,
-    p_ds_latitude IN NUMBER DEFAULT NULL,
-    p_ds_longitude IN NUMBER DEFAULT NULL,
-    p_ds_endereco IN VARCHAR2 DEFAULT NULL,
-    p_ds_status IN VARCHAR2 DEFAULT NULL
-) AS
-    v_count NUMBER;
+--UPDATE
+CREATE OR REPLACE PROCEDURE PRC_UPDATE_PEDIDO_AJUDA (
+    p_cd_pedido         IN T_EH_PEDIDO_AJUDA.CD_PEDIDO%TYPE,
+    p_cd_usuario        IN T_EH_PEDIDO_AJUDA.CD_USUARIO%TYPE DEFAULT NULL, -- FK, update with caution
+    p_ds_tipo           IN T_EH_PEDIDO_AJUDA.DS_TIPO%TYPE DEFAULT NULL,
+    p_ds_descricao      IN T_EH_PEDIDO_AJUDA.DS_DESCRICAO%TYPE DEFAULT NULL,
+    p_ds_latitude       IN T_EH_PEDIDO_AJUDA.DS_LATITUDE%TYPE DEFAULT NULL,
+    p_ds_longitude      IN T_EH_PEDIDO_AJUDA.DS_LONGITUDE%TYPE DEFAULT NULL,
+    p_ds_endereco       IN T_EH_PEDIDO_AJUDA.DS_ENDERECO%TYPE DEFAULT NULL,
+    p_dt_pedido         IN T_EH_PEDIDO_AJUDA.DT_PEDIDO%TYPE DEFAULT NULL,
+    p_ds_status         IN T_EH_PEDIDO_AJUDA.DS_STATUS%TYPE DEFAULT NULL
+)
+IS
 BEGIN
-    -- Verificar se o pedido existe
-    SELECT COUNT(*) INTO v_count FROM T_EH_PEDIDO_AJUDA WHERE CD_PEDIDO = p_cd_pedido;
-    
-    IF v_count = 0 THEN
-        DBMS_OUTPUT.PUT_LINE('Pedido não encontrado.');
-        RETURN;
-    END IF;
-    
-    -- Atualizar apenas os campos fornecidos
-    UPDATE T_EH_PEDIDO_AJUDA SET
+    UPDATE T_EH_PEDIDO_AJUDA
+    SET
+        CD_USUARIO = NVL(p_cd_usuario, CD_USUARIO),
         DS_TIPO = NVL(p_ds_tipo, DS_TIPO),
         DS_DESCRICAO = NVL(p_ds_descricao, DS_DESCRICAO),
         DS_LATITUDE = NVL(p_ds_latitude, DS_LATITUDE),
         DS_LONGITUDE = NVL(p_ds_longitude, DS_LONGITUDE),
         DS_ENDERECO = NVL(p_ds_endereco, DS_ENDERECO),
+        DT_PEDIDO = NVL(p_dt_pedido, DT_PEDIDO),
         DS_STATUS = NVL(p_ds_status, DS_STATUS)
-    WHERE CD_PEDIDO = p_cd_pedido;
-    
+    WHERE
+        CD_PEDIDO = p_cd_pedido;
     COMMIT;
-    DBMS_OUTPUT.PUT_LINE('Pedido de ajuda atualizado com sucesso.');
 EXCEPTION
     WHEN OTHERS THEN
         ROLLBACK;
-        DBMS_OUTPUT.PUT_LINE('Erro ao atualizar pedido de ajuda: ' || SQLERRM);
         RAISE;
-END sp_atualizar_pedido_ajuda;
+END PRC_UPDATE_PEDIDO_AJUDA;
 /
 
-CREATE OR REPLACE PROCEDURE sp_excluir_pedido_ajuda (
-    p_cd_pedido IN NUMBER
-) AS
-    v_count NUMBER;
-    v_atendimentos NUMBER;
+--DELETE
+CREATE OR REPLACE PROCEDURE PRC_DELETE_PEDIDO_AJUDA (
+    p_cd_pedido IN T_EH_PEDIDO_AJUDA.CD_PEDIDO%TYPE
+)
+IS
 BEGIN
-    -- Verificar se o pedido existe
-    SELECT COUNT(*) INTO v_count FROM T_EH_PEDIDO_AJUDA WHERE CD_PEDIDO = p_cd_pedido;
-    
-    IF v_count = 0 THEN
-        DBMS_OUTPUT.PUT_LINE('Pedido não encontrado.');
-        RETURN;
-    END IF;
-    
-    -- Verificar se o pedido tem atendimentos associados
-    SELECT COUNT(*) INTO v_atendimentos 
-    FROM T_EH_ATENDIMENTO_VOLUNTARIO 
+    DELETE FROM T_EH_PEDIDO_AJUDA
     WHERE CD_PEDIDO = p_cd_pedido;
-    
-    IF v_atendimentos > 0 THEN
-        DBMS_OUTPUT.PUT_LINE('Não é possível excluir pedido com atendimentos associados.');
-        RETURN;
-    END IF;
-    
-    -- Excluir pedido
-    DELETE FROM T_EH_PEDIDO_AJUDA WHERE CD_PEDIDO = p_cd_pedido;
-    
     COMMIT;
-    DBMS_OUTPUT.PUT_LINE('Pedido de ajuda excluído com sucesso.');
 EXCEPTION
     WHEN OTHERS THEN
         ROLLBACK;
-        DBMS_OUTPUT.PUT_LINE('Erro ao excluir pedido de ajuda: ' || SQLERRM);
         RAISE;
-END sp_excluir_pedido_ajuda;
+END PRC_DELETE_PEDIDO_AJUDA;
 /
 
-DECLARE
-    v_pedido_id NUMBER;
+--Inserindo dados
 BEGIN
-    -- Pedido 1
-    sp_inserir_pedido_ajuda(
-        2, -- CD_USUARIO (Maria Souza)
-        'ALIMENTACAO', 
-        'Preciso de ajuda com alimentos para minha família', 
-        -23.5505199, 
-        -46.6333094, 
-        'Rua Exemplo, 123 - São Paulo/SP', 
-        'PENDENTE', 
-        v_pedido_id
+    PRC_INSERT_PEDIDO_AJUDA(
+        p_cd_usuario        => 1, 
+        p_ds_tipo           => 'Alimentação',
+        p_ds_descricao      => 'Solicitação de cesta básica para família de 4 pessoas. Urgente.',
+        p_ds_latitude       => -23.561358,
+        p_ds_longitude      => -46.656189,
+        p_ds_endereco       => 'Rua da Consolação, 900, Consolação, São Paulo, SP',
+        p_dt_pedido         => TO_DATE('2025-06-01 10:00:00', 'YYYY-MM-DD HH24:MI:SS'),
+        p_ds_status         => 'PENDENTE'
     );
-    
-    -- Pedido 2
-    sp_inserir_pedido_ajuda(
-        2, -- CD_USUARIO (Maria Souza)
-        'MEDICAMENTOS', 
-        'Necessito de remédios para hipertensão', 
-        -22.9068467, 
-        -43.1728965, 
-        'Av. Brasil, 1000 - Rio de Janeiro/RJ', 
-        'PENDENTE', 
-        v_pedido_id
+
+    PRC_INSERT_PEDIDO_AJUDA(
+        p_cd_usuario        => 1, 
+        p_ds_tipo           => 'Medicamentos',
+        p_ds_descricao      => 'Necessidade de Insulina NPH e tiras de glicemia para idoso diabético.',
+        p_ds_latitude       => -23.558798,
+        p_ds_longitude      => -46.660777,
+        p_ds_endereco       => 'Av. Angélica, 500, Higienópolis, São Paulo, SP',
+        p_dt_pedido         => TO_DATE('2025-06-02 14:30:00', 'YYYY-MM-DD HH24:MI:SS'),
+        p_ds_status         => 'EM_ATENDIMENTO'
     );
-    
-    -- Pedido 3
-    sp_inserir_pedido_ajuda(
-        2, -- CD_USUARIO (Maria Souza)
-        'TRANSPORTE', 
-        'Preciso de carona para consulta médica', 
-        -19.919052, 
-        -43.938668, 
-        'Rua da Bahia, 200 - Belo Horizonte/MG', 
-        'PENDENTE', 
-        v_pedido_id
+
+    PRC_INSERT_PEDIDO_AJUDA(
+        p_cd_usuario        => 4, 
+        p_ds_tipo           => 'Transporte',
+        p_ds_descricao      => 'Precisa de transporte para consulta médica no Hospital das Clínicas dia 05/06.',
+        p_ds_latitude       => -23.555392,
+        p_ds_longitude      => -46.669099,
+        p_ds_endereco       => 'Rua Dr. Ovídio Pires de Campos, 225, Cerqueira César, São Paulo, SP',
+        p_dt_pedido         => TO_DATE('2025-06-03 08:15:00', 'YYYY-MM-DD HH24:MI:SS'),
+        p_ds_status         => 'PENDENTE'
     );
-    
-    -- Pedido 4
-    sp_inserir_pedido_ajuda(
-        2, -- CD_USUARIO (Maria Souza)
-        'ALIMENTACAO', 
-        'Cesta básica para família de 4 pessoas', 
-        -12.9715989, 
-        -38.5018959, 
-        'Largo do Pelourinho, 15 - Salvador/BA', 
-        'PENDENTE', 
-        v_pedido_id
+
+    PRC_INSERT_PEDIDO_AJUDA(
+        p_cd_usuario        => 1, 
+        p_ds_tipo           => 'Abrigo Temporário',
+        p_ds_descricao      => 'Desabrigado devido a enchente, necessita de abrigo para casal e um cachorro pequeno.',
+        p_ds_latitude       => -23.547500,
+        p_ds_longitude      => -46.636110,
+        p_ds_endereco       => 'Praça da Sé, s/n, Centro, São Paulo, SP (referência)',
+        p_dt_pedido         => SYSDATE - 1, -- Ontem (relativo à data de execução)
+        p_ds_status         => 'CONCLUIDO'
     );
-    
-    -- Pedido 5
-    sp_inserir_pedido_ajuda(
-        2, -- CD_USUARIO (Maria Souza)
-        'OUTROS', 
-        'Ajuda com reparos em casa após enchente', 
-        -30.0346471, 
-        -51.2176584, 
-        'Av. Borges de Medeiros, 500 - Porto Alegre/RS', 
-        'PENDENTE', 
-        v_pedido_id
+
+    PRC_INSERT_PEDIDO_AJUDA(
+        p_cd_usuario        => 4, 
+        p_ds_tipo           => 'Material Escolar',
+        p_ds_descricao      => 'Arrecadação de cadernos e lápis para crianças de comunidade carente.',
+        p_ds_latitude       => -23.570000,
+        p_ds_longitude      => -46.670000,
+        p_ds_endereco       => 'Rua Solidariedade, 789, Bairro Esperança, São Paulo, SP',
+        p_dt_pedido         => SYSDATE, -- Hoje (relativo à data de execução)
+        p_ds_status         => 'PENDENTE'
     );
 END;
 /

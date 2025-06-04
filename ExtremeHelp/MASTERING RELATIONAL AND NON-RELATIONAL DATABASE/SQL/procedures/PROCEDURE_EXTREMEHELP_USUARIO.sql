@@ -1,17 +1,18 @@
-CREATE OR REPLACE PROCEDURE sp_inserir_usuario (
-    p_nm_usuario IN VARCHAR2,
-    p_ds_email IN VARCHAR2,
-    p_ds_senha IN VARCHAR2,
-    p_ds_telefone IN VARCHAR2 DEFAULT NULL,
-    p_ds_tipo IN VARCHAR2,
-    p_ds_status IN NUMBER,
-    p_cd_usuario OUT NUMBER
-) AS
+--Nome: Caike Dametto RM: 558614
+--Nome: Guilhetme Janunzzi RM: 558461
+
+--INSERT
+CREATE OR REPLACE PROCEDURE PRC_INSERT_USUARIO (
+    p_nm_usuario    IN T_EH_USUARIO.NM_USUARIO%TYPE,
+    p_ds_email      IN T_EH_USUARIO.DS_EMAIL%TYPE,
+    p_ds_senha      IN T_EH_USUARIO.DS_SENHA%TYPE,
+    p_ds_telefone   IN T_EH_USUARIO.DS_TELEFONE%TYPE DEFAULT NULL,
+    p_ds_tipo       IN T_EH_USUARIO.DS_TIPO%TYPE,
+    p_dt_registro   IN T_EH_USUARIO.DT_REGISTRO%TYPE,
+    p_ds_status     IN T_EH_USUARIO.DS_STATUS%TYPE
+)
+IS
 BEGIN
-    -- Gerar novo ID
-    SELECT NVL(MAX(CD_USUARIO), 0) + 1 INTO p_cd_usuario FROM T_EH_USUARIO;
-    
-    -- Inserir novo usuário
     INSERT INTO T_EH_USUARIO (
         CD_USUARIO,
         NM_USUARIO,
@@ -22,156 +23,121 @@ BEGIN
         DT_REGISTRO,
         DS_STATUS
     ) VALUES (
-        p_cd_usuario,
+        SEQ_EH_USUARIO.NEXTVAL,
         p_nm_usuario,
         p_ds_email,
         p_ds_senha,
         p_ds_telefone,
         p_ds_tipo,
-        SYSDATE,
+        p_dt_registro,
         p_ds_status
     );
-    
     COMMIT;
-    DBMS_OUTPUT.PUT_LINE('Usuário inserido com sucesso. ID: ' || p_cd_usuario);
 EXCEPTION
     WHEN OTHERS THEN
         ROLLBACK;
-        DBMS_OUTPUT.PUT_LINE('Erro ao inserir usuário: ' || SQLERRM);
-        RAISE;
-END sp_inserir_usuario;
+        RAISE; -- Re-raise the exception
+END PRC_INSERT_USUARIO;
 /
 
-CREATE OR REPLACE PROCEDURE sp_atualizar_usuario (
-    p_cd_usuario IN NUMBER,
-    p_nm_usuario IN VARCHAR2 DEFAULT NULL,
-    p_ds_email IN VARCHAR2 DEFAULT NULL,
-    p_ds_senha IN VARCHAR2 DEFAULT NULL,
-    p_ds_telefone IN VARCHAR2 DEFAULT NULL,
-    p_ds_tipo IN VARCHAR2 DEFAULT NULL,
-    p_ds_status IN NUMBER DEFAULT NULL
-) AS
-    v_count NUMBER;
+--UPDATE
+CREATE OR REPLACE PROCEDURE PRC_UPDATE_USUARIO (
+    p_cd_usuario    IN T_EH_USUARIO.CD_USUARIO%TYPE,
+    p_nm_usuario    IN T_EH_USUARIO.NM_USUARIO%TYPE DEFAULT NULL,
+    p_ds_email      IN T_EH_USUARIO.DS_EMAIL%TYPE DEFAULT NULL,
+    p_ds_senha      IN T_EH_USUARIO.DS_SENHA%TYPE DEFAULT NULL,
+    p_ds_telefone   IN T_EH_USUARIO.DS_TELEFONE%TYPE DEFAULT NULL,
+    p_ds_tipo       IN T_EH_USUARIO.DS_TIPO%TYPE DEFAULT NULL,
+    p_dt_registro   IN T_EH_USUARIO.DT_REGISTRO%TYPE DEFAULT NULL,
+    p_ds_status     IN T_EH_USUARIO.DS_STATUS%TYPE DEFAULT NULL
+)
+IS
 BEGIN
-    -- Verificar se o usuário existe
-    SELECT COUNT(*) INTO v_count FROM T_EH_USUARIO WHERE CD_USUARIO = p_cd_usuario;
-    
-    IF v_count = 0 THEN
-        DBMS_OUTPUT.PUT_LINE('Usuário não encontrado.');
-        RETURN;
-    END IF;
-    
-    -- Atualizar apenas os campos fornecidos
-    UPDATE T_EH_USUARIO SET
+    UPDATE T_EH_USUARIO
+    SET
         NM_USUARIO = NVL(p_nm_usuario, NM_USUARIO),
         DS_EMAIL = NVL(p_ds_email, DS_EMAIL),
         DS_SENHA = NVL(p_ds_senha, DS_SENHA),
         DS_TELEFONE = NVL(p_ds_telefone, DS_TELEFONE),
         DS_TIPO = NVL(p_ds_tipo, DS_TIPO),
+        DT_REGISTRO = NVL(p_dt_registro, DT_REGISTRO),
         DS_STATUS = NVL(p_ds_status, DS_STATUS)
+    WHERE
+        CD_USUARIO = p_cd_usuario;
+    COMMIT;
+EXCEPTION
+    WHEN OTHERS THEN
+        ROLLBACK;
+        RAISE;
+END PRC_UPDATE_USUARIO;
+/
+
+--DELETE
+CREATE OR REPLACE PROCEDURE PRC_DELETE_USUARIO (
+    p_cd_usuario IN T_EH_USUARIO.CD_USUARIO%TYPE
+)
+IS
+BEGIN
+    DELETE FROM T_EH_USUARIO
     WHERE CD_USUARIO = p_cd_usuario;
-    
     COMMIT;
-    DBMS_OUTPUT.PUT_LINE('Usuário atualizado com sucesso.');
 EXCEPTION
     WHEN OTHERS THEN
         ROLLBACK;
-        DBMS_OUTPUT.PUT_LINE('Erro ao atualizar usuário: ' || SQLERRM);
         RAISE;
-END sp_atualizar_usuario;
+END PRC_DELETE_USUARIO;
 /
 
-CREATE OR REPLACE PROCEDURE sp_excluir_usuario (
-    p_cd_usuario IN NUMBER
-) AS
-    v_count NUMBER;
-    v_pedidos NUMBER;
+--Inserindo dados
 BEGIN
-    -- Verificar se o usuário existe
-    SELECT COUNT(*) INTO v_count FROM T_EH_USUARIO WHERE CD_USUARIO = p_cd_usuario;
-    
-    IF v_count = 0 THEN
-        DBMS_OUTPUT.PUT_LINE('Usuário não encontrado.');
-        RETURN;
-    END IF;
-    
-    -- Verificar se o usuário tem pedidos associados
-    SELECT COUNT(*) INTO v_pedidos FROM T_EH_PEDIDO_AJUDA WHERE CD_USUARIO = p_cd_usuario;
-    
-    IF v_pedidos > 0 THEN
-        DBMS_OUTPUT.PUT_LINE('Não é possível excluir usuário com pedidos associados.');
-        RETURN;
-    END IF;
-    
-    -- Excluir usuário
-    DELETE FROM T_EH_USUARIO WHERE CD_USUARIO = p_cd_usuario;
-    
-    COMMIT;
-    DBMS_OUTPUT.PUT_LINE('Usuário excluído com sucesso.');
-EXCEPTION
-    WHEN OTHERS THEN
-        ROLLBACK;
-        DBMS_OUTPUT.PUT_LINE('Erro ao excluir usuário: ' || SQLERRM);
-        RAISE;
-END sp_excluir_usuario;
-/
+    PRC_INSERT_USUARIO(
+        p_nm_usuario    => 'Ana Silva',
+        p_ds_email      => 'ana.silva@example.com',
+        p_ds_senha      => 'AnaS9233', 
+        p_ds_telefone   => '(11)98765-4321',
+        p_ds_tipo       => 'SOLICITANTE',
+        p_dt_registro   => TO_DATE('2025-06-01', 'YYYY-MM-DD'),
+        p_ds_status     => 1
+    );
 
-DECLARE
-    v_id NUMBER;
-BEGIN
-    -- Usuário 1
-    sp_inserir_usuario(
-        'João Silva', 
-        'joao.silva@email.com', 
-        'senha123', 
-        '11987654321', 
-        'VOLUNTARIO', 
-        1, 
-        v_id
+    PRC_INSERT_USUARIO(
+        p_nm_usuario    => 'Bruno Costa',
+        p_ds_email      => 'bruno.costa@example.com',
+        p_ds_senha      => 'CostaB296',
+        p_ds_telefone   => '(21)91234-5678',
+        p_ds_tipo       => 'VOLUNTARIO',
+        p_dt_registro   => TO_DATE('2025-06-02', 'YYYY-MM-DD'),
+        p_ds_status     => 1
     );
-    
-    -- Usuário 2
-    sp_inserir_usuario(
-        'Maria Souza', 
-        'maria.souza@email.com', 
-        'senha456', 
-        '21987654321', 
-        'SOLICITANTE', 
-        1, 
-        v_id
+
+    PRC_INSERT_USUARIO(
+        p_nm_usuario    => 'Carla Dias',
+        p_ds_email      => 'carla.dias@example.com',
+        p_ds_senha      => 'CD3789',
+        p_ds_telefone   => NULL,
+        p_ds_tipo       => 'ADMIN',
+        p_dt_registro   => TO_DATE('2025-05-30', 'YYYY-MM-DD'),
+        p_ds_status     => 1
     );
-    
-    -- Usuário 3
-    sp_inserir_usuario(
-        'Carlos Oliveira', 
-        'carlos.oliveira@email.com', 
-        'senha789', 
-        '31987654321', 
-        'VOLUNTARIO', 
-        1, 
-        v_id
+
+    PRC_INSERT_USUARIO(
+        p_nm_usuario    => 'Daniel Farias',
+        p_ds_email      => 'daniel.farias@example.com',
+        p_ds_senha      => 'Dan3821',
+        p_ds_telefone   => '(31)95555-0000',
+        p_ds_tipo       => 'SOLICITANTE',
+        p_dt_registro   => SYSDATE - 5, -- 5 dias atrás
+        p_ds_status     => 0
     );
-    
-    -- Usuário 4
-    sp_inserir_usuario(
-        'Ana Santos', 
-        'ana.santos@email.com', 
-        'senha101', 
-        '41987654321', 
-        'ADMINISTRADOR', 
-        1, 
-        v_id
-    );
-    
-    -- Usuário 5
-    sp_inserir_usuario(
-        'Pedro Costa', 
-        'pedro.costa@email.com', 
-        'senha112', 
-        '51987654321', 
-        'VOLUNTARIO', 
-        1, 
-        v_id
+
+    PRC_INSERT_USUARIO(
+        p_nm_usuario    => 'Elisa Mendes',
+        p_ds_email      => 'elisa.mendes@example.com',
+        p_ds_senha      => 'Eli202',
+        p_ds_telefone   => '(41)97777-1111',
+        p_ds_tipo       => 'VOLUNTARIO',
+        p_dt_registro   => SYSDATE, -- Hoje
+        p_ds_status     => 1
     );
 END;
 /
