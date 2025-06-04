@@ -1,4 +1,9 @@
+--Nome: Caike Dametto RM: 558614
+--Nome: Guilhetme Janunzzi RM: 558461
+
 --Função para Calcular Total de Pedidos de Ajuda Pendentes por Usuário
+
+SET SERVEROUTPUT ON;
 
 CREATE OR REPLACE FUNCTION FNC_COUNT_USER_PENDING_REQUESTS (
     p_cd_usuario IN T_EH_USUARIO.CD_USUARIO%TYPE

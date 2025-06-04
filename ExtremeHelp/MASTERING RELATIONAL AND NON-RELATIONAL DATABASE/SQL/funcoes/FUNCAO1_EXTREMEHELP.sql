@@ -1,4 +1,8 @@
+--Nome: Caike Dametto RM: 558614
+--Nome: Guilhetme Janunzzi RM: 558461
+
 --Função para Contar Alertas Ativos por Nível de Seriedade
+
 SET SERVEROUTPUT ON;
 
 CREATE OR REPLACE FUNCTION FNC_COUNT_ACTIVE_ALERTS_BY_SERIOUSNESS (
