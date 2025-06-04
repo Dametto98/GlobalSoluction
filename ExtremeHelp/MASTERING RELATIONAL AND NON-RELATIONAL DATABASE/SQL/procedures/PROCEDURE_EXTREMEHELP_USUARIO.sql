@@ -92,9 +92,9 @@ END PRC_DELETE_USUARIO;
 BEGIN
     PRC_INSERT_USUARIO(
         p_nm_usuario    => 'Ana Silva',
-        p_ds_email      => 'ana.silva@example.com',
+        p_ds_email      => 'ana.silva@extremehelp.com',
         p_ds_senha      => 'AnaS9233', 
-        p_ds_telefone   => '(11)98765-4321',
+        p_ds_telefone   => '(11)96312-2819',
         p_ds_tipo       => 'SOLICITANTE',
         p_dt_registro   => TO_DATE('2025-06-01', 'YYYY-MM-DD'),
         p_ds_status     => 1
@@ -102,9 +102,9 @@ BEGIN
 
     PRC_INSERT_USUARIO(
         p_nm_usuario    => 'Bruno Costa',
-        p_ds_email      => 'bruno.costa@example.com',
+        p_ds_email      => 'bruno.costa@extremehelp.com',
         p_ds_senha      => 'CostaB296',
-        p_ds_telefone   => '(21)91234-5678',
+        p_ds_telefone   => '(21)92188-2821',
         p_ds_tipo       => 'VOLUNTARIO',
         p_dt_registro   => TO_DATE('2025-06-02', 'YYYY-MM-DD'),
         p_ds_status     => 1
@@ -112,7 +112,7 @@ BEGIN
 
     PRC_INSERT_USUARIO(
         p_nm_usuario    => 'Carla Dias',
-        p_ds_email      => 'carla.dias@example.com',
+        p_ds_email      => 'carla.dias@extremehelp.com',
         p_ds_senha      => 'CD3789',
         p_ds_telefone   => NULL,
         p_ds_tipo       => 'ADMIN',
@@ -122,9 +122,9 @@ BEGIN
 
     PRC_INSERT_USUARIO(
         p_nm_usuario    => 'Daniel Farias',
-        p_ds_email      => 'daniel.farias@example.com',
+        p_ds_email      => 'daniel.farias@extremehelp.com',
         p_ds_senha      => 'Dan3821',
-        p_ds_telefone   => '(31)95555-0000',
+        p_ds_telefone   => '(31)92721-7182',
         p_ds_tipo       => 'SOLICITANTE',
         p_dt_registro   => SYSDATE - 5, -- 5 dias atrás
         p_ds_status     => 0
@@ -132,9 +132,9 @@ BEGIN
 
     PRC_INSERT_USUARIO(
         p_nm_usuario    => 'Elisa Mendes',
-        p_ds_email      => 'elisa.mendes@example.com',
+        p_ds_email      => 'elisa.mendes@extremehelp.com',
         p_ds_senha      => 'Eli202',
-        p_ds_telefone   => '(41)97777-1111',
+        p_ds_telefone   => '(41)94274-2817',
         p_ds_tipo       => 'VOLUNTARIO',
         p_dt_registro   => SYSDATE, -- Hoje
         p_ds_status     => 1
