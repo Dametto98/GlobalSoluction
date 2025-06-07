@@ -240,9 +240,6 @@
         <bounds x="382" y="1068" width="185" height="60"/>
         <sourceConnection xsi:type="archimate:Connection" id="id-996629765277467e8c20585f19b9cdfa" source="id-e9840318654247f09237910964684796" target="id-5fbf170d92b8487597df81fbb6f9f63e" archimateRelationship="id-d17b838da8cf4350b96ff8f02e827498"/>
       </child>
-      <child xsi:type="archimate:DiagramObject" id="id-560a1af4ec87498aad2a28760c858afe" archimateElement="id-4077bc6285b94368bf7139ddaa45fa7b">
-        <bounds x="24" y="1632" width="120" height="55"/>
-      </child>
       <child xsi:type="archimate:DiagramObject" id="id-1f608113d3e343bbbab97eddaaed99cc" archimateElement="id-9d0197ee98384f57983f747696692492">
         <bounds x="84" y="1044" width="193" height="108"/>
         <sourceConnection xsi:type="archimate:Connection" id="id-4a9a5654a71f40fb9ccabfb2e9bdbb31" source="id-1f608113d3e343bbbab97eddaaed99cc" target="id-837a261cbc4c401589aa6daa20d40191" archimateRelationship="id-b5a45c4a3ebc436aa1ab149457286cf9"/>
