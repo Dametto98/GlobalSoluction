@@ -32,24 +32,16 @@ Para compilar e rodar esta aplicação localmente, você precisará de:
 
 ## ⚙️ Configuração
 
-As principais configurações da aplicação estão no arquivo `src/main/resources/application.properties`. A aplicação é configurada para usar perfis do Spring, permitindo diferentes configurações para cada ambiente (ex: `dev`, `prod`).
+As principais configurações da aplicação estão no arquivo `src/main/resources/application.properties`. Para esta versão, o projeto está configurado para usar um banco de dados H2 em memória, o que significa que nenhuma configuração externa de banco de dados é necessária.
 
-A conexão com o banco de dados é controlada por variáveis de ambiente para maior segurança e flexibilidade:
+O banco de dados é criado e populado automaticamente toda vez que a aplicação é iniciada, e os dados são perdidos quando a aplicação é encerrada.
 
-* `DB_HOST`: O endereço IP ou hostname do servidor do banco de dados.
-* `DB_USERNAME`: O nome de usuário para a conexão.
-* `DB_PASSWORD`: A senha para a conexão.
-
-**Exemplo de `application-prod.properties`:**
+Configurações do H2 no `application.properties`:
 
 ```properties
-# URL de conexão JDBC usando placeholders
-spring.datasource.url=jdbc:oracle:thin:@//${DB_HOST}/FREEPDB1
-spring.datasource.username=${DB_USERNAME}
-spring.datasource.password=${DB_PASSWORD}
-
-# Configurações do Driver e Hibernate
-spring.datasource.driver-class-name=oracle.jdbc.OracleDriver
+spring.datasource.url=jdbc:h2:mem:mottomap
+spring.h2.console.enabled=true
+spring.h2.console.path=/h2-console
 
 ```
 
@@ -57,7 +49,11 @@ spring.datasource.driver-class-name=oracle.jdbc.OracleDriver
 
 ## ▶️ Como Executar a Aplicação Localmente
 
-Existem duas formas principais de executar a aplicação na sua máquina local para desenvolvimento ou teste.
+Como o banco de dados é em memória, não é necessário configurar nenhuma variável de ambiente. Basta compilar e rodar.
+
+### 1. Usando o Maven Wrapper (Recomendado)
+
+Esta é a forma mais fácil, pois utiliza a versão do Maven embarcada no projeto. No terminal, na raiz do diretório `ExtemeHelp-JavaBackend`, execute:
 
 ### 1. Usando o Maven Wrapper
 
@@ -65,23 +61,11 @@ Esta é a forma mais fácil, pois utiliza a versão do Maven embarcada no projet
 
 **No Linux/macOS:**
 ```bash
-# Defina as variáveis de ambiente primeiro
-export DB_HOST="<ip_do_seu_banco>"
-export DB_USERNAME="<usuario_do_banco>"
-export DB_PASSWORD="<senha_do_banco>"
-
-# Execute a aplicação
 ./mvnw spring-boot:run
 ```
 
 **No Windows (CMD):**
 ```cmd
-REM Defina as variáveis de ambiente primeiro
-set DB_HOST="<ip_do_seu_banco>"
-DB_USERNAME="<usuario_do_banco>"
-set DB_PASSWORD="<senha_do_banco>"
-
-REM Execute a aplicação
 mvnw.cmd spring-boot:run
 ```
 
@@ -97,24 +81,18 @@ Primeiro, você precisa compilar o projeto e gerar o arquivo `.jar`.
 Após a compilação, o arquivo `app.jar` (ou similar) estará na pasta `target/`. Agora, execute o JAR, passando as variáveis de ambiente:
 
 ```bash
-# Defina as variáveis de ambiente
-export DB_HOST="<ip_do_seu_banco>"
-export DB_USERNAME="<usuario_do_banco>"
-export DB_PASSWORD="<senha_do_banco>"
-
-# Execute o JAR
-java -jar target/app.jar
+java -jar target/extremehelp-0.0.1-SNAPSHOT.jar
 ```
 
 A aplicação iniciará na porta `8080` por padrão.
 
 ---
 
-## 📚 Documentação da API (Swagger)
+## 📚 Documentação da API
 
-Uma vez que a aplicação esteja rodando, você pode acessar a documentação interativa da API, gerada pelo Swagger UI, no seu navegador. Isso permite visualizar e testar todos os endpoints disponíveis.
+Uma vez que a aplicação esteja rodando, você pode testar por sistemas como Postman ou Insomnia.
 
-* **URL da Documentação:** [http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html)
+* **URL padrão da aplcação:** [http://localhost:8080/](http://localhost:8080/)
 
 ---
 
