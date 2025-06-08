@@ -1,6 +1,3 @@
-// ====================================================================================
-// Arquivo: src/screens/Auth/RegisterScreen.js
-// ====================================================================================
 import React, { useState, useContext } from 'react';
 import { View, Text, StyleSheet, Alert, ScrollView, KeyboardAvoidingView, Platform, TouchableOpacity } from 'react-native';
 import { AuthContext } from '../../contexts/AuthContext';

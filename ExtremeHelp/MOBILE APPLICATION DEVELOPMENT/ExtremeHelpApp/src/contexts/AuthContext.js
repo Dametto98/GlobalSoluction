@@ -1,7 +1,3 @@
-// ====================================================================================
-// Arquivo: src/contexts/AuthContext.js
-// ====================================================================================
-import React, { createContext, useState, useEffect } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import * as apiService from '../services/api';
 import { USER_TYPES, API_USER_TYPES } from '../utils/constants';
@@ -10,7 +6,7 @@ export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [userToken, setUserToken] = useState(null);
-  const [userType, setUserType] = useState(null); // SOLICITANTE, VOLUNTARIO, ADMIN (do app)
+  const [userType, setUserType] = useState(null);
   const [userId, setUserId] = useState(null);
   const [userName, setUserName] = useState(null);
   const [isLoadingAuth, setIsLoadingAuth] = useState(true);
@@ -20,14 +16,8 @@ export const AuthProvider = ({ children }) => {
     if (upperApiTipoUsuario === API_USER_TYPES.ADMIN) return USER_TYPES.ADMIN;
     if (upperApiTipoUsuario === API_USER_TYPES.VOLUNTARIO) return USER_TYPES.VOLUNTARIO;
     
-    // Se a API retornar "SOLICITANTE" diretamente, ou se não for ADMIN/VOLUNTARIO, consideramos SOLICITANTE.
-    // A API no Insomnia não tem um tipo "SOLICITANTE" explícito no login, usa "ADMIN".
-    // Ajuste esta lógica se a sua API retornar tipos diferentes ou se precisar de uma regra mais complexa.
-    // Por exemplo, se um ADMIN também puder ser um solicitante, você precisaria de mais informações.
-    // Assumindo que se não for VOLUNTARIO ou ADMIN, é um solicitante por padrão no app.
-    // Ou, se sua API retornar um tipo "USUARIO", você mapearia para "SOLICITANTE".
     console.log(`API tipoUsuario: ${upperApiTipoUsuario}, mapeado para App UserType`);
-    return USER_TYPES.SOLICITANTE; // Default se não for ADMIN ou VOLUNTARIO.
+    return USER_TYPES.SOLICITANTE; 
   };
 
   const login = async (email, password) => {

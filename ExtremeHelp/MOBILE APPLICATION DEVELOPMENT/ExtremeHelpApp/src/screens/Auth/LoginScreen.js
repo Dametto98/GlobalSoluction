@@ -1,6 +1,3 @@
-// ====================================================================================
-// Arquivo: src/screens/Auth/LoginScreen.js
-// ====================================================================================
 import React, { useState, useContext } from 'react';
 import { View, Text, StyleSheet, Alert, KeyboardAvoidingView, Platform, ScrollView } from 'react-native';
 import { AuthContext } from '../../contexts/AuthContext';

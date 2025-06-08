@@ -1,6 +1,3 @@
-// ====================================================================================
-// Arquivo: src/screens/Voluntario/ViewRequestsScreen.js
-// ====================================================================================
 import React, { useState, useCallback, useContext } from 'react';
 import { View, Text, StyleSheet, FlatList, RefreshControl, Alert, TouchableOpacity } from 'react-native';
 import { useFocusEffect, useNavigation } from '@react-navigation/native';

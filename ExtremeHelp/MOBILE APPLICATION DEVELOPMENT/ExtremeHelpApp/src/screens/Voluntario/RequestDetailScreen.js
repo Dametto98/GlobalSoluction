@@ -1,6 +1,3 @@
-// ====================================================================================
-// Arquivo: src/screens/Voluntario/RequestDetailScreen.js
-// ====================================================================================
 import React, { useState, useEffect, useCallback, useContext } from 'react';
 import { View, Text, StyleSheet, ScrollView, Alert, TouchableOpacity, Linking } from 'react-native';
 import * as apiService from '../../services/api';

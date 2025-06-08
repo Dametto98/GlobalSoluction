@@ -24,7 +24,7 @@ apiClient.interceptors.request.use(
     if ((config.method === 'post' || config.method === 'put') && !config.headers['Content-Type']) {
         config.headers['Content-Type'] = 'application/json';
     }
-    config.headers['User-Agent'] = 'ExtremeHelpApp/1.0.2'; // Atualizar versão se necessário
+    config.headers['User-Agent'] = 'ExtremeHelpApp/1.0.2'; 
     return config;
   },
   (error) => {
@@ -74,7 +74,7 @@ export const registerUser = (userDataFromForm) => {
         email: userDataFromForm.email,
         senha: userDataFromForm.password,
         telefone: userDataFromForm.phone || null,
-        tipoUsuario: userDataFromForm.userType.toUpperCase(), // Ex: SOLICITANTE, VOLUNTARIO, ADMIN
+        tipoUsuario: userDataFromForm.userType.toUpperCase(),
         // dataRegistro e status são definidos pelo backend, conforme Insomnia
     };
     return apiClient.post('/usuario', apiUserData).then(res => res.data);

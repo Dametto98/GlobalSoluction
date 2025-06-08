@@ -1,6 +1,3 @@
-// ====================================================================================
-// Arquivo: src/screens/Solicitante/CreateRequestScreen.js
-// ====================================================================================
 import React, { useState, useContext, useEffect } from 'react';
 import { View, Text, StyleSheet, Alert, ScrollView, TextInput, TouchableOpacity, Platform } from 'react-native';
 import CustomButton from '../../components/CustomButton';
@@ -10,7 +7,6 @@ import LoadingIndicator from '../../components/LoadingIndicator';
 import { AuthContext } from '../../contexts/AuthContext';
 import { APP_COLORS, HELP_TYPES_LIST, USER_TYPES } from '../../utils/constants';
 import { Ionicons } from '@expo/vector-icons';
-// import * as Location from 'expo-location'; // Descomente se for usar GPS
 
 export default function CreateRequestScreen({ navigation }) {
   const [description, setDescription] = useState(''); // API: descricão
